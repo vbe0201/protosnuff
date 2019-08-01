@@ -1,0 +1,31 @@
+[package]
+name = "protosnuff"
+version = "0.1.0"
+description = "CLI tool to reverse-engineer Protocol Buffer with unknown definition"
+authors = ["Valentin B. <valentin.be@protonmail.com>"]
+edition = "2018"
+
+readme = "./README.md"
+repository = "https://github.com/vbe0201/protosnuff"
+license = "Apache-2.0"
+
+categories = ["command-line-utilities"]
+keywords = ["cli", "protobuf", "protosnuff"]
+
+[[bin]]
+name = "protosnuff"
+path = "src/main.rs"
+
+[dependencies]
+ansi_term = "0.12.0"
+getopts = "0.2.19"
+
+[profile.dev]
+incremental = false
+lto = true
+debug = true
+panic = "abort"
+
+[profile.release]
+lto = true
+panic = "abort"
