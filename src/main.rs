@@ -5,6 +5,8 @@ use ansi_term::Color::Red;
 use std::env;
 
 mod arguments;
+mod io;
+mod parser;
 
 fn main() {
     // Get and parse arguments.
@@ -22,13 +24,4 @@ fn main() {
             return;
         }
     };
-
-    // Check if provided input file exists and print contents.
-    if !arguments.input.exists() {
-        eprintln!("{} {}",
-                  Red.paint(arguments.input.to_str().unwrap()),
-                  Red.paint("does not exist!"));
-        return;
-    }
-    println!("Input: {:?}", std::fs::read_to_string(&arguments.input).unwrap());
 }
